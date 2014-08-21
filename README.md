@@ -10,10 +10,10 @@ port=4000 node server.js
 
 ## To test
 ```
-http://localhost:3000/echo
+curl http://localhost:3000/echo
 # should respond 'Hello'
 
-http://localhost:3000/echo/Rico
+curl http://localhost:3000/echo/Rico
 # should respond 'Hello Rico'
 
 curl -H 'lang: tw' http://localhost:3000/echo
