@@ -23,4 +23,7 @@ curl -H 'lang: tw' http://localhost:3000/echo
 
 curl -H 'lang: tw' http://localhost:3000/echo/Rico
 # should respond 'Rico你好'
+
+curl -H 'lang: tw' http://localhost:3000/else
+# should respond 'Something else' since there is no translation for that in tw.js
 ```

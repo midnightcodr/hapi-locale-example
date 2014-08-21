@@ -1,5 +1,4 @@
 {
 	"Hello": "Hello",
-	"Hello %s": "Hello %s",
-	"Something else": "Something else"
+	"Hello %s": "Hello %s"
 }
