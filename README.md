@@ -3,9 +3,11 @@ This is a demo on how to use Hapi.js with i18n-2 localization package.
 
 ## Instruction
 ```
+git clone https://github.com/midnightcodr/hapi-locale-example.git
+cd hapi-locale-example.git
 npm install
 port=4000 node server.js
-# default port to 3000
+# default port is 3000
 ```
 
 ## To test
