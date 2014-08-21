@@ -8,7 +8,6 @@ var Hapi=require('hapi')
 	server.ext('onRequest', function(request, next) {
 		console.log(request.headers);
 		var lang=request.headers['lang']||'en';
-		console.log('lang='+lang);
 		i18n.setLocale(lang);
 		next();
 	});
