@@ -1,14 +1,16 @@
 var Hapi=require('hapi')
-	, i18n=new( require('i18n-2')) ( {
+	, i18n=require('i18n-2')
+	, i18n_opts={
 		locales: ['en', 'tw']
-	})
+	}
 	, server=Hapi.createServer(process.env.port||3000);
 
 
 server.ext('onRequest', function(request, next) {
-	console.log(request.headers);
+	//console.log(request.headers);
 	var lang=request.headers['lang']||'en';
-	i18n.setLocale(lang);
+	request.i18n=new i18n(i18n_opts);
+	request.i18n.setLocale(lang);
 	next();
 });
 server.route({
@@ -17,9 +19,9 @@ server.route({
 	handler: function(request, reply) {
 		var name=request.params.name||'', s;
 		if(name!=='') {
-			s=i18n.__('Hello %s', name);
+			s=request.i18n.__('Hello %s', name);
 		} else {
-			s=i18n.__('Hello');
+			s=request.i18n.__('Hello');
 		}
 		console.log(s);
 		reply(s);
@@ -29,7 +31,7 @@ server.route({
 	method: 'GET',
 	path: '/else',
 	handler: function(request, reply) {
-		var s=i18n.__('Something else');
+		var s=request.i18n.__('Something else');
 		reply(s);
 	}
 });
